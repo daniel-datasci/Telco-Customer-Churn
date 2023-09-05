@@ -106,7 +106,7 @@ FROM telco
 ORDER BY MonthlyCharges DESC, TotalCharges DESC;
 
 /*  Q8 - how many Internet Services we provide in our company? */
-select InternetService, (cast(count(InternetService) as decimal) / count(*)) * 100 as Ratio
+select InternetService, (cast(count(InternetService) as decimal) / 7043) * 100 as Ratio
 from telco
 group by InternetService;
 
