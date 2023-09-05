@@ -96,14 +96,19 @@ set Dependents = CASE
 	ELSE 'Yes'
 END;
 
-SELECT Dependents, AVG(MonthlyCharges) AS average_monthly_charges
+SELECT Dependents, AVG(MonthlyCharges) AS Average_monthly_charges
 FROM telco
 GROUP BY Dependents;
 
 /*  Q7 - who is the the most important customer in the company according to Monthly and Total charges? */
 SELECT top 1 customerID, MonthlyCharges, TotalCharges
 FROM telco
-ORDER BY MonthlyCharges DESC, TotalCharges DESC
+ORDER BY MonthlyCharges DESC, TotalCharges DESC;
+
+/*  Q8 - how many Internet Services we provide in our company? */
+select InternetService, (cast(count(InternetService) as decimal) / count(*)) * 100 as Ratio
+from telco
+group by InternetService;
 
 
 
